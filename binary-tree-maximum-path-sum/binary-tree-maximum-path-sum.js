@@ -28,5 +28,7 @@ function maxPath(root, result) {
 
     if (l + r + root.val > result.max) result.max = l + r + root.val
 
+    // the return value here means the max sum this `root` can contribute as a child node
+    // the actual max sum of the node is tracked by `result`
     return Math.max(0, Math.max(l, r) + root.val)
 }
