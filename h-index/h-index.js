@@ -42,3 +42,16 @@ function check(citations, h) {
 
     return r1 && r2
 }
+
+var hIndex = function(citations) {
+    citations.sort(function(a, b) { return a < b ? -1 : 1 })
+
+    var range = Math.min(citations.length, Math.max.apply(null, citations)),
+        len = citations.length
+
+    for (var mh = 0; mh < len; mh++) {
+        if (citations[mh] >= len - mh) return len - mh
+    }
+
+    return 0
+}
